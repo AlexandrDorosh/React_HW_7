@@ -2,15 +2,11 @@ import {useState} from "react";
 import Info from "../info/info";
 
 export default function Forms({users}){
-    const [user, setUser] = useState({});
-    const [userInfo, setUserInfo] = useState({});
+    const [user, setUser] = useState(undefined);
 
     const userChoose = (e) => {
-        const user_id = e.target.value;
-        const findUser = users.find(user => user.id === user_id)
-        setUser(findUser);
-        const findInfo = users.find(user => user.id === +user_id)
-        setUserInfo(findInfo);
+        const findInfo = users.find(user => user.id === +e.target.value)
+        setUser(findInfo);
     }
 
     return(
@@ -23,7 +19,7 @@ export default function Forms({users}){
                 </select>
             </form>
             {
-                userInfo ? <Info userInfo={userInfo} /> : null
+                user && <Info userInfo={user} />
             }
         </div>
     )
