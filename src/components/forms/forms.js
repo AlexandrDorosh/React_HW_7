@@ -12,7 +12,8 @@ export default function Forms({users}){
     return(
         <div>
             <form onSubmit={userChoose}>
-                <select onChange={userChoose} value={user}>
+                <select onChange={userChoose}>
+                    <option selected disabled hidden>Choose here</option>
                     {
                         users.map(value => <option key={value.id} value={value.id}>{value.name}</option>)
                     }
