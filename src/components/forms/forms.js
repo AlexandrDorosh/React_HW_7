@@ -2,8 +2,7 @@ import {useState} from "react";
 import Info from "../info/info";
 
 export default function Forms({users}){
-    const [user, setUser] = useState({});
-    const [userInfo, setUserInfo] = useState({});
+    const [user, setUser] = useState(null);
 
     const userChoose = (e) => {
         const findInfo = users.find(user => user.id === +e.target.value)
